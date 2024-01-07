@@ -26,10 +26,5 @@ export const getAllData = () => async (dispatch) => {
       payload: false,
     });
     console.log("Error:", e);
-    toast.error(
-      e?.response?.data?.error
-        ? e?.response?.data?.error
-        : "Something is wrong. Please try again!"
-    );
   }
 };
