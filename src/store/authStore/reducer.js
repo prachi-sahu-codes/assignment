@@ -1,11 +1,9 @@
-import Cookies from 'js-cookie';
 
 const localStorageToken = JSON.parse(localStorage.getItem("authItems"));
-const cookieToken = Cookies.get('authItems');
 
 const InitialState = {
-  token: cookieToken?.token,
-  loggedUser: cookieToken?.user,
+  token: localStorageToken?.token,
+  loggedUser: localStorageToken?.user,
   loading: false,
 };
 
