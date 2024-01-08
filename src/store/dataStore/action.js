@@ -1,4 +1,3 @@
-import { toast } from "react-toastify";
 import { getAllDataService } from "../../api/services/dataServices";
 
 export const getAllData = () => async (dispatch) => {

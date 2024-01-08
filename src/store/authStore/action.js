@@ -1,6 +1,5 @@
 import { signupService, loginService } from "../../api/services/authServices";
 import { toast } from "react-toastify";
-import Cookies from "js-cookie";
 
 export const signUpUser =
   (input, setUserInfo, navigate) => async (dispatch) => {
@@ -57,7 +56,7 @@ export const loginUser = (input, navigate) => async (dispatch) => {
     if (res.status === 201) {
       const { token, user } = res.data;
       localStorage.setItem("authItems", JSON.stringify({ token, user }));
-      
+
       dispatch({
         type: "LOGIN",
         payload: { token, user },
@@ -87,7 +86,7 @@ export const loginUser = (input, navigate) => async (dispatch) => {
 
 export const logoutHandler = (navigate) => async (dispatch) => {
   localStorage.removeItem("authItems");
- 
+
   dispatch({
     type: "LOGOUT",
     payload: { token: null, user: null },

@@ -12,14 +12,13 @@ const Dashboard = () => {
   const { allData, age, gender, startDate, endDate } = useSelector(
     (state) => state.data
   );
-  console.log("hi", allData);
+
   const filteredData = allData?.filter(
     (obj) =>
       (!age || obj.Age === age) &&
       (!gender || obj.Gender === gender) &&
       (!startDate || (obj.Day >= startDate && obj.Day <= endDate))
   );
-  console.log({ filteredData });
 
   return (
     <div className="w-full min-h-screen bg-gradient-to-b from-indigo-300 to-indigo-500 text-center">
@@ -32,10 +31,10 @@ const Dashboard = () => {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 m-5 mt-10">
         <div className="w-full flex justify-center bg-indigo-100 rounded-md p-6 shadow-md m-auto">
-          <BarChart arrData={filteredData}/>
+          <BarChart arrData={filteredData} />
         </div>
         <div className="w-full flex justify-center bg-indigo-100 rounded-md p-6 shadow-md m-auto">
-          <LineChart arrData={filteredData}/>
+          <LineChart arrData={filteredData} />
         </div>
       </div>
     </div>

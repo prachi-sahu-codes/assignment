@@ -3,19 +3,26 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Filters = () => {
   const { age, gender } = useSelector((state) => state.data);
+  const dispatch = useDispatch();
   const [filter, setFilter] = useState({ age: age, gender: gender });
   const handleAgeChange = (event) => {
     const selectedAge = event.target.value;
-    setFilter({ ...filter, age: selectedAge });
+    setFilter((filter) => ({ ...filter, age: selectedAge }));
+    dispatch({ type: "AGE_SELECTED", payload: selectedAge });
   };
 
   const handleGenderChange = (event) => {
     const selectedGender = event.target.value;
-    setFilter({ ...filter, gender: selectedGender });
+    setFilter((filter) => ({ ...filter, gender: selectedGender }));
+    dispatch({ type: "GENDER_SELECTED", payload: selectedGender });
+  };
+
+  const clearPreferences = () => {
+    dispatch({ type: "CLEAR_PREFERENCES" });
   };
 
   return (
@@ -25,7 +32,7 @@ const Filters = () => {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={filter.age}
+          value={age}
           label="Age"
           onChange={handleAgeChange}
           className="w-28"
@@ -40,7 +47,7 @@ const Filters = () => {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={filter.gender}
+          value={gender}
           label="Gender"
           onChange={handleGenderChange}
           className="w-28"
@@ -49,6 +56,14 @@ const Filters = () => {
           <MenuItem value="Female">Female</MenuItem>
         </Select>
       </FormControl>
+      <div>
+        <button
+          onClick={() => clearPreferences()}
+          className="h-[56px] w-40 w-max-content md700:p-2 bg-indigo-500 rounded-md text-indigo-50 hover:bg-indigo-600 shadow active:bg"
+        >
+          Clear Preferences
+        </button>
+      </div>
     </div>
   );
 };

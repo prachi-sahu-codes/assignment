@@ -45,8 +45,7 @@ export function BarChart({ arrData }) {
     dispatch({ type: "BAR_VALUE_SELECTED", payload: data });
   };
 
-
-  const totalTimeSpent =arrData.reduce(
+  const totalTimeSpent = arrData.reduce(
     (acc, obj) => [
       acc[0] + obj["A"],
       acc[1] + obj["B"],
@@ -57,8 +56,6 @@ export function BarChart({ arrData }) {
     ],
     [0, 0, 0, 0, 0, 0]
   );
-
-  console.log(totalTimeSpent)
 
   const data = {
     labels,

@@ -10,7 +10,6 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import faker from "faker";
 import { useSelector } from "react-redux";
 
 ChartJS.register(
@@ -40,7 +39,7 @@ export function LineChart({ arrData }) {
   const { selectedBarValue } = useSelector((state) => state.data);
 
   const labels = arrData.map((obj) => obj?.Day);
-  console.log(labels);
+
   const data = {
     labels,
     datasets: [

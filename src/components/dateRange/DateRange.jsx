@@ -5,6 +5,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
 import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
 import { convertDateFormat } from "../../utils/utils";
 import { useDispatch, useSelector } from "react-redux";
+import dayjs from 'dayjs';
 
 export default function DateRange() {
   const data = useSelector((state) => state.data);
@@ -31,6 +32,8 @@ export default function DateRange() {
         <DateRangePicker
           localeText={{ start: "Start date", end: "End date" }}
           onChange={handleDateRangeChange}
+          // defaultRangePosition=""
+          defaultValue={[dayjs('2022-04-10'), dayjs('2022-05-10')]}
         />
       </DemoContainer>
     </LocalizationProvider>
