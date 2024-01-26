@@ -7,8 +7,7 @@ Users can explore the available data, easily filter it, and set date of their ow
 ## Live Demo
 
 
-https://github.com/prachi-sahu-codes/dataVisualizationDashboard/assets/87253962/07f9dab4-7edc-4c59-af30-5c254d71a36f
-
+https://github.com/prachi-sahu-codes/dataVisualizationDashboard/assets/87253962/b7df69d6-e44f-4d48-bb94-2b5b63fff941
 
 
 ## Key Features
